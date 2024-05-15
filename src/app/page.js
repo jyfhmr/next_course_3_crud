@@ -1,5 +1,6 @@
-import { Space, Table, Tag } from 'antd';
-
+import { Table } from 'antd';
+import { FileAddFilled, DeleteFilled } from '@ant-design/icons';
+import { FloatButton } from 'antd';
 
 const columns = [
   {
@@ -37,9 +38,18 @@ export default async function Home() {
 
   console.log("data from getUsers en home", data)
 
+  data.map((son) => { son.key = son.id })
+  console.log("data afeter key", data)
+
   return (
-    <div>
-      <Table dataSource={data} columns={columns} />
-    </div>
+    <>
+      <div>
+        <Table style={{ width: "50%", margin: "auto", marginTop: "10vh", outline: "2px solid black" }} dataSource={data} columns={columns} />
+      </div>
+
+
+    
+
+    </>
   );
 }
